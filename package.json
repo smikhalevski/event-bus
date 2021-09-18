@@ -1,0 +1,59 @@
+{
+  "name": "yaeb",
+  "version": "1.0.0",
+  "description": "Yet another event bus.",
+  "main": "./lib/index-cjs.js",
+  "module": "./lib/index.js",
+  "types": "./lib/index.d.ts",
+  "sideEffects": false,
+  "files": [
+    "lib"
+  ],
+  "scripts": {
+    "build": "tsc && npm run rollup && npm run terser",
+    "rollup": "rollup --input ./lib/index.js --file ./lib/index-cjs.js --format cjs --plugin @rollup/plugin-node-resolve",
+    "terser": "terser --compress --mangle toplevel --output ./lib/index-cjs.js -- ./lib/index-cjs.js",
+    "clean": "rm -rf ./lib",
+    "test": "jest --detectOpenHandles",
+    "perf": "[ -d ./lib ] || npm run build && node --expose-gc --max-old-space-size=4096 ./src/test/perf.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/smikhalevski/yaeb.git"
+  },
+  "keywords": [
+    "pubsub",
+    "event",
+    "rx",
+    "reactive"
+  ],
+  "author": "Savva Mikhalevski <smikhalevski@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/smikhalevski/yaeb/issues"
+  },
+  "homepage": "https://github.com/smikhalevski/yaeb#readme",
+  "jest": {
+    "preset": "ts-jest",
+    "globals": {
+      "ts-jest": {
+        "diagnostics": {
+          "ignoreCodes": [
+            151001
+          ]
+        }
+      }
+    }
+  },
+  "devDependencies": {
+    "@rollup/plugin-node-resolve": "^13.0.4",
+    "@smikhalevski/perf-test": "^1.0.0",
+    "@types/jest": "^27.0.1",
+    "chalk": "^4.1.2",
+    "jest": "^27.1.0",
+    "rollup": "^2.56.3",
+    "terser": "^5.7.2",
+    "ts-jest": "^27.0.5",
+    "typescript": "4.4.2"
+  }
+}
