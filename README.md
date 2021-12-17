@@ -8,6 +8,8 @@ The most primitive implementation of a push-based event bus (pub/sub) that you c
 npm install --save-prod @smikhalevski/event-bus
 ```
 
+# Usage
+
 ```ts
 import {EventBus} from '@smikhalevski/event-bus';
 
