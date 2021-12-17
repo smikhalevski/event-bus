@@ -1,15 +1,15 @@
-# yaeb [![build](https://github.com/smikhalevski/yaeb/actions/workflows/master.yml/badge.svg?branch=master&event=push)](https://github.com/smikhalevski/yaeb/actions/workflows/master.yml)
+# event-bus [![build](https://github.com/smikhalevski/event-bus/actions/workflows/master.yml/badge.svg?branch=master&event=push)](https://github.com/smikhalevski/event-bus/actions/workflows/master.yml)
 
 Yet another event bus. There are many like it, but this one is mine.
 
 The most primitive implementation of a push-based event bus (pub/sub) that you can find.
 
 ```shell
-npm install yaeb
+npm install --save-prod @smikhalevski/event-bus
 ```
 
 ```ts
-import {EventBus} from 'yaeb';
+import {EventBus} from '@smikhalevski/event-bus';
 
 interface IFooEvent {
   foo: string;
